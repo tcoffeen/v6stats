@@ -1,23 +1,155 @@
 <!-- index_template.html -->
 <!DOCTYPE html>
-<html>
+<html  >
 <head>
-<title>Current /48 Consumption</title>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/bumble-dark-144x64.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/datatables/data-tables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  
+  
+  
 </head>
 <body>
+  
+  <section class="menu cid-tPRIYAsvDs" once="menu" id="menu1-h">
 
-<h1>Current /48 Consumption</h1>
+    
 
-<table cellpadding="5" cellspacing="1" border="1">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="https://hexabuild.io" target="_blank">
+                         <img src="assets/images/bumble-dark-144x64.png" alt="" style="height: 3.8rem;">
+                    </a>
+                </span>
+                
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            
+        </div>
+    </nav>
+</section>
 
-<tr><td>CIDR</td><td>CIDR Allocated</td><td>/48s in Allocated Prefix</td></tr>
-{% for x, y, z in template_data %}
-    <tr> <td> {{ x }} </td> <td> {{ y }} </td> <td> {{ z }} </td> </tr>
-{% endfor %}
-<tr><td>Total /48s Allocated</td><td></td><td>{{ total_48s_sum }}</td></tr>
-<tr><td>/48s Available in 2000::/3</td><td></td><td>3.51844E13</td></tr>
-<tr><td>Percentage of 2000::/3 Allocated</td><td></td><td>{{ perc_round }}</td></tr>
-</table>
+<section class="section-table cid-tPRJbzJO8x" id="table1-i">
 
+  
+  
+  <div class="container container-table">
+      <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-5">Current IPv6 GUA (2000::/3) Utilization: {{ perc_round }}% </h2>
+      
+      <div class="table-wrapper">
+        <div class="container">
+          
+        </div>
+
+        <div class="container scroll">
+          <table class="table" cellspacing="0" data-empty="No matching records found">
+            <thead>
+              <tr class="table-heads ">
+                  
+                  
+                  
+                  
+              <th class="head-item mbr-fonts-style display-7">CIDR</th><th class="head-item mbr-fonts-style display-7">CIDR Assigned to Date</th><th class="head-item mbr-fonts-style display-7">Total Assigned /48s</th></tr>
+            </thead>
+
+            <tbody>
+              
+              
+              
+            {% for x, y, z in template_data %}
+          
+            <tr> 
+                
+              <td class="body-item mbr-fonts-style display-7">{{ x }}</td><td class="body-item mbr-fonts-style display-7">{{ y }}</td><td class="body-item mbr-fonts-style display-7">{{ z }}</td></tr><tr>
+                                
+                {% endfor %}
+                
+                
+              <td class="body-item mbr-fonts-style display-7">Allocated /48s Total</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7">{{ total_48s_sum }}</td></tr><tr>
+                
+                
+                
+                
+              <td class="body-item mbr-fonts-style display-7">Total of /48s in 2000::/3</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7">3.51844E13</td></tr><tr>
+                
+                
+                
+                
+              <td class="body-item mbr-fonts-style display-7">% of 2000::/3 utilized</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7">{{ perc_round }}</td></tr></tbody>
+          </table>
+        </div>
+        <div class="container table-info-container">
+          
+        </div>
+      </div>
+    </div>
+</section>
+
+<section once="footers" class="cid-tPRJi7BwE5" id="footer7-j">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    RIR allocation and assignment data obtained from https://www.potaroo.net/bgp/stats/nro/delegated-nro-extended.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="assets/popper/popper.min.js"></script>
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/datatables/jquery.data-tables.min.js"></script>
+  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  
 </body>
 </html>

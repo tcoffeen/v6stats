@@ -1,0 +1,23 @@
+<!-- index_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Current /48 Consumption</title>
+</head>
+<body>
+
+<h1>Current /48 Consumption</h1>
+
+<table cellpadding="5" cellspacing="1" border="1">
+
+<tr><td>CIDR</td><td>CIDR Allocated</td><td>/48s in Allocated Prefix</td></tr>
+{% for x, y, z in template_data %}
+    <tr> <td> {{ x }} </td> <td> {{ y }} </td> <td> {{ z }} </td> </tr>
+{% endfor %}
+<tr><td>Total /48s Allocated</td><td></td><td>{{ total_48s_sum }}</td></tr>
+<tr><td>/48s Available in 2000::/3</td><td></td><td>3.51844E13</td></tr>
+<tr><td>Percentage of 2000::/3 Allocated</td><td></td><td>{{ perc_round }}</td></tr>
+</table>
+
+</body>
+</html>

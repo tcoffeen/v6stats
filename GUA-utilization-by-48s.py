@@ -53,8 +53,8 @@ percent = (total_48s_sum) / 35184372088832 * 100
 perc_round = round(percent, 2)
 
 # Define time and date stamp
-timedatestamp = datetime.now(timezone.utc)
-dt_string = timedatestamp.strftime("%m/%d/%Y %H:%M:%S")
+dt_string = datetime.now(timezone.utc)
+timedatestamp = dt_string.strftime("%m/%d/%Y %H:%M:%S")
 
 # create single list that includes CIDR lengths from /19 to /48, 
 # the allocated CIDRs, and the total /48s consumed for all CIDR

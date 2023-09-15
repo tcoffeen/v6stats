@@ -8,6 +8,8 @@ import sys
 from jinja2 import Template
 import numpy
 import ast
+import boto3
+from urllib import parse
 
 # Grab raw allocation data from Geoff Huston's site and write it to a temp file
 with urllib.request.urlopen('https://www.potaroo.net/bgp/stats/nro/delegated-nro-extended') as response:
@@ -69,3 +71,9 @@ output.close()
 
 # remove tmp file
 os.remove(tmp_file.name)
+
+# Upload new index.html to S3 bucket website
+s3 = boto3.resource('s3')
+tags = {"public": "yes"}
+s3 = boto3.client('s3')
+s3.upload_file('index.html', 'stats.ipv6enabled.net', 'index.html', ExtraArgs={'Tagging': parse.urlencode(tags), 'ContentType': "text/html"})

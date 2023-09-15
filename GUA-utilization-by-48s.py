@@ -10,6 +10,7 @@ import numpy
 import ast
 import boto3
 from urllib import parse
+from datetime import datetime, timezone
 
 # Grab raw allocation data from Geoff Huston's site and write it to a temp file
 with urllib.request.urlopen('https://www.potaroo.net/bgp/stats/nro/delegated-nro-extended') as response:
@@ -51,6 +52,10 @@ total_48s_sum = numpy.sum(total_48s)
 percent = (total_48s_sum) / 35184372088832 * 100
 perc_round = round(percent, 2)
 
+# Define time and date stamp
+timedatestamp = datetime.now(timezone.utc)
+dt_string = timedatestamp.strftime("%m/%d/%Y %H:%M:%S")
+
 # create single list that includes CIDR lengths from /19 to /48, 
 # the allocated CIDRs, and the total /48s consumed for all CIDR
 template_data = zip(cidr_length, allocated_cidrs, total_48s)
@@ -62,7 +67,7 @@ File.close()
 
 # Render the template and pass the variables
 template = Template(content)
-rendered_form = template.render(template_data=template_data, total_48s_sum=total_48s_sum, perc_round=perc_round)
+rendered_form = template.render(template_data=template_data, total_48s_sum=total_48s_sum, perc_round=perc_round, timedatestamp=timedatestamp)
 
 # save the txt file in the form.html
 output = open('/Users/tom/Dropbox/VS Code/dev/v6stats/index.html', 'w')

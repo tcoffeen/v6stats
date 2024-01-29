@@ -61,7 +61,7 @@ timedatestamp = dt_string.strftime("%m/%d/%Y %H:%M:%S")
 template_data = zip(cidr_length, allocated_cidrs, total_48s)
 
 # Create one external form_template html page and read it
-File = open('/Users/tom/Dropbox/VS Code/dev/v6stats/index-template.html', 'r')
+File = open('index-template.html', 'r')
 content = File.read()
 File.close()
 
@@ -70,7 +70,7 @@ template = Template(content)
 rendered_form = template.render(template_data=template_data, total_48s_sum=total_48s_sum, perc_round=perc_round, timedatestamp=timedatestamp)
 
 # save the txt file in the form.html
-output = open('/Users/tom/Dropbox/VS Code/dev/v6stats/index.html', 'w')
+output = open('index.html', 'w')
 output.write(rendered_form)
 output.close()
 

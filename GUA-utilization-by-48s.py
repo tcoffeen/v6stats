@@ -23,7 +23,7 @@ my_result = StringIO()
 sys.stdout = my_result
 
 # regex to grab assigned v6 CIDRs and print count
-for var1 in range(19, 49):
+for var1 in range(16, 49):
         ipv6 = open(tmp_file.name)
         print(len(re.findall(rf"ipv6.*::\|{var1}.*assigned", ipv6.read())))
 
@@ -35,13 +35,13 @@ sys.stdout = tmp
 allocated_cidrs = (str.split(my_result.getvalue()))
 allocated_cidrs = [ast.literal_eval(i) for i in allocated_cidrs]
 
-# generate and format a list of cidr lengths between /19 and /48 
+# generate and format a list of cidr lengths between /16 and /48 
 cidr_length = []
-for i in range(19, 49):
+for i in range(16, 49):
     i = cidr_length.append(str(f"/{i}"))
 
 # define list of total /48s available for listed CIDR lengths
-available_48s = [536870912 ,268435456 ,134217728 ,67108864 ,33554432 ,16777216 \
+available_48s = [4294967296 ,2147483648 ,1073741824 ,536870912 ,268435456 ,134217728 ,67108864 ,33554432 ,16777216 \
                 ,8388608 ,4194304 ,2097152 ,1048576 ,524288 ,262144 ,131072 ,65536 \
                 ,32768 ,16384 ,8192 ,4096 ,2048 ,1024 ,512 ,256 ,128 ,64 ,32 ,16 ,8 ,4 ,2 ,1]
 

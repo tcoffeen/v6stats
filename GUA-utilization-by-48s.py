@@ -25,7 +25,7 @@ sys.stdout = my_result
 # regex to grab assigned v6 CIDRs and print count
 for var1 in range(16, 49):
         ipv6 = open(tmp_file.name)
-        print(len(re.findall(rf"ipv6.*::\|{var1}.*assigned", ipv6.read())))
+        print(len(re.findall(rf"ipv6\|2.*::\|{var1}.*assigned", ipv6.read())))
 
 # re-redirect stdout
 sys.stdout = tmp
